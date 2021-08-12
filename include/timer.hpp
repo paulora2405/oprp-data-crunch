@@ -1,17 +1,19 @@
 #include <atomic>
 #include <chrono>
 #include <iostream>
+#include <string>
 
 namespace TIMER {
 
 template <typename Clock = std::chrono::high_resolution_clock>
 class stopwatch {
   const typename Clock::time_point start_point;
+  std::string name;
 
 public:
-  stopwatch() : start_point(Clock::now()) {}
+  stopwatch(std::string name) : start_point(Clock::now()), name{name} {}
   ~stopwatch() {
-    std::cout << "Time elapsed: "
+    std::cout << name << " - Time elapsed: "
               << this->elapsed_time<unsigned int, std::chrono::microseconds>() * 10e-7
               << " seconds." << std::endl;
   }
