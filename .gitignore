@@ -1,5 +1,7 @@
 # Custom
 build/
+entrada/
+.vscode/
 
 # Prerequisites
 *.d
