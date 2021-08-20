@@ -8,7 +8,6 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <string>
 #include <utility>
 
 #include "sort.hpp"
@@ -62,20 +61,20 @@ void dataManipulation(std::vector<double>& data) {
   }
 
   std::pair<double, double> p = avg_and_geo(data);
-  double avg = p.first, geo = p.second;
+  const double avg = p.first, geo = p.second;
 
-  double ma = avg;
-  double std = 0.0;
-  double mg = geo;
-  double md = data[data.size() / 2 + 1];
-  double p95 = data[(95 / 100) * data.size()];
-  double min = data.front();
-  double max = data.back();
-
-  for(size_t i = 0; i < data.size(); ++i)
-    std += std::pow(data[i] - ma, 2);
-
-  std = sqrt(std / data.size());
+  const double ma = avg;
+  const double std = [&data, &ma]() {
+    double std = 0.0;
+    for(size_t i = 0; i < data.size(); ++i)
+      std += std::pow(data[i] - ma, 2);
+    return sqrt(std / data.size());
+  }();
+  const double mg = geo;
+  const double md = data[data.size() / 2 + 1];
+  const double p95 = data[(95 / 100) * data.size()];
+  const double min = data.front();
+  const double max = data.back();
 
   std::cout << data.size() << std::setprecision(8) << ".txt " << ma << ' ' << std << ' ' << mg
             << ' ' << md << ' ' << p95 << ' ' << min << ' ' << max << '\n';

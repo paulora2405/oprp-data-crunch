@@ -2,8 +2,6 @@
 
 #include <omp.h>
 
-#include <cstring>
-
 namespace sort {
 
 int partition(std::vector<double> &v, int start, int end) {
