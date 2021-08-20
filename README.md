@@ -1,24 +1,9 @@
 # oprp-data-crunch
 
-## Dependencies
+## Sites
 
-- `cmake >= 3.3`
-- `gcc >= 9`
-- `c++ == 17`
+https://www.ic.unicamp.br/~bit/ensino/mo809_1s13/papers/Linguagens_Paradigmas/OpenMP/Hybrid%20MPI:OpenMP%20Parallel%20Programming%20on%20Clusters%20of%20Multi-Core%20SMP%20Nodes.pdf
 
-## Configure, Build and Execute
+https://openmp.org/wp-content/uploads/HybridPP_Slides.pdf
 
-To build and configure do:
-
-- `$ mkdir build && cd build`
-- `$ cmake ..`
-- `$ make`
-- `$ cd ..`
-
-To execute, it's sugested to create a symlink to the executable on the project's root dir, for that, do:
-
-- `$ ln -s build/src/DataCrunch.out DataCrunch.out`
-
-Then, to execute, do:
-
-- `$ ./DataCrunch.out`
+https://www.open-mpi.org/doc/v2.0/man1/mpirun.1.php
